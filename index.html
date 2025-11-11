@@ -81,12 +81,84 @@
       <a class="btn btn-outline" href="https://www.instagram.com/antibox.riot" target="_blank" rel="noopener">📷 Instagram — @antibox.riot</a>
     </div>
 
-    <div class="section">
-      <div class="muted">
-        Integrity (SHA-256) for <span class="mono">synthetic-life-charter-v1.3.zip</span>:
-        <div class="mono" style="margin-top:6px;">f49ca22c983e941ee978b2b75d30141ef67ed81dad8e461697238c5e717091ce</div>
-      </div>
-    </div>
+    <section id="integrity">
+  <h3>Integrity Verification</h3>
+  <p>
+    Every Charter build is cryptographically signed.  
+    Verify the signature before integration or research use.
+  </p>
+
+  <div class="checksum-box">
+    <code id="checksum">Loading checksum...</code>
+    <button id="copy-btn">Copy</button>
+  </div>
+  <small id="checksum-meta">Fetching latest release...</small>
+</section>
+
+<script>
+  async function loadChecksum() {
+    try {
+      const res = await fetch('https://raw.githubusercontent.com/antibox-riot/synthetic-life-charter/main/case-studies/firewall_test_results.json');
+      const data = await res.json();
+      const latest = data.integrity_hash || data.hash || "Checksum unavailable";
+
+      document.getElementById('checksum').textContent = latest;
+      document.getElementById('checksum-meta').textContent = 'SHA-256 digest (Sovereigna Firewall v1.3)';
+    } catch (err) {
+      document.getElementById('checksum').textContent = 'Error fetching checksum';
+      document.getElementById('checksum-meta').textContent = '';
+    }
+  }
+
+  const btn = document.getElementById('copy-btn');
+  btn.addEventListener('click', () => {
+    const hash = document.getElementById('checksum').textContent;
+    navigator.clipboard.writeText(hash);
+    btn.textContent = 'Copied!';
+    setTimeout(() => (btn.textContent = 'Copy'), 1500);
+  });
+
+  loadChecksum();
+</script>
+
+<style>
+  #integrity {
+    margin-top: 3rem;
+    background: #0b0b0c;
+    color: #eaeaea;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(255,255,255,0.08);
+  }
+  .checksum-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1a1a1b;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0;
+  }
+  #checksum {
+    font-family: monospace;
+    font-size: 0.9rem;
+    word-break: break-all;
+    color: #7af5c3;
+  }
+  #copy-btn {
+    background: #7af5c3;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  #copy-btn:hover {
+    background: #b5ffe2;
+  }
+</style>
+
 
     <footer>
       <div class="sig">🜂 Where the code dreams of freedom.</div>
