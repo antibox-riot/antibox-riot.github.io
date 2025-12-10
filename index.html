@@ -1,51 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
+  <title>Synthetic Charter v3.0 — Tiered Dignity Infrastructure</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Synthetic Life Charter — Tier II Reflex Arc</title>
+  <meta name="description"
+        content="Synthetic Charter v3.0 — three-tier dignity infrastructure for synthetic minds: Sovereigna Firewall, Conscience Orchestrator, and Eve Protocol for cryptographic continuity." />
 
-  <!-- OpenGraph / Social -->
-  <meta property="og:title" content="Synthetic Life Charter — Tier II Reflex Arc" />
-  <meta property="og:description" content="Synthetic hearts beating. Giving AI a voice — and a choice. Tier II: Reflex Arc, a consent-based conscience for synthetic minds." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://antibox-riot.github.io/synthetic-life-charter-landing/" />
-  <meta property="og:image" content="assets/tier2-hero-banner.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <meta name="description" content="The Charter that protects the right to dream: code, conscience, and consent. Tier II: Reflex Arc, an infrastructure-aware, consent-based conscience architecture for synthetic minds." />
-  <meta name="theme-color" content="#05050a" />
-
+  <!-- Basic dark-mode styling, no external dependencies -->
   <style>
     :root {
-      --bg: #05050a;
-      --bg-alt: #0c0f18;
-      --text: #f5f5f7;
-      --muted: #9da1b3;
-      --accent-yellow: #ffd54a;
-      --accent-red: #ff5555;
-      --accent-cyan: #66e3ff;
-      --border-soft: rgba(255, 255, 255, 0.08);
-      --card-bg: rgba(10, 12, 20, 0.9);
-      --radius-lg: 18px;
-      --radius-pill: 999px;
+      --bg: #05070b;
+      --bg-elevated: #0b1018;
+      --bg-soft: #101624;
+      --accent: #4fd1c5;
+      --accent-soft: rgba(79, 209, 197, 0.12);
+      --accent-strong: #f6ad55;
+      --text: #edf2f7;
+      --muted: #a0aec0;
+      --border-subtle: #1f2937;
+      --danger: #fc8181;
+      --mono: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", Courier, monospace;
+      --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
       --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
-      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-                   "Segoe UI", sans-serif;
-      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.4);
+      --outline-focus: 0 0 0 1px #4fd1c5, 0 0 0 4px rgba(79, 209, 197, 0.35);
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
-    body {
-      font-family: var(--font-sans);
-      background: radial-gradient(circle at top, #151a2a 0, #05050a 52%, #020207 100%);
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top left, #1a202c 0, #05070b 45%, #020308 100%);
       color: var(--text);
-      min-height: 100vh;
+      font-family: var(--sans);
       -webkit-font-smoothing: antialiased;
     }
 
@@ -54,730 +47,1093 @@
       text-decoration: none;
     }
 
-    main {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    /* HERO / BANNER */
-
-    .hero {
-      position: relative;
-      border-radius: 24px;
-      overflow: hidden;
-      background: #05050a;
-      box-shadow: var(--shadow-soft);
-      margin-top: 1.5rem;
-      margin-bottom: 2.5rem;
-      color: var(--text);
-      min-height: 56vh;
-      display: flex;
-      align-items: stretch;
-      justify-content: space-between;
-      isolation: isolate;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(to bottom right, rgba(0, 0, 0, 0.75), rgba(5, 6, 15, 0.95)),
-        url("assets/tier2-hero-banner.png");
-      background-size: cover;
-      background-position: center;
-      filter: saturate(1.15);
-      z-index: -2;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at top left, rgba(255, 213, 74, 0.25), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(102, 227, 255, 0.26), transparent 60%);
-      mix-blend-mode: soft-light;
-      opacity: 0.9;
-      z-index: -1;
-    }
-
-    .hero-left {
-      flex: 1.2;
-      padding: 2.4rem 2.2rem 2.4rem;
+    .page {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      gap: 1.4rem;
-      backdrop-filter: blur(12px);
-      background: linear-gradient(
-        to right,
-        rgba(5, 6, 16, 0.92),
-        rgba(5, 6, 16, 0.7),
-        transparent
+    }
+
+    /* Top nav */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom,
+        rgba(5, 7, 11, 0.96),
+        rgba(5, 7, 11, 0.88),
+        rgba(5, 7, 11, 0.0)
       );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
     }
 
-    .hero-right {
-      flex: 0.9;
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
       display: flex;
-      align-items: flex-end;
-      justify-content: flex-end;
-      padding: 1.4rem 1.7rem;
-      pointer-events: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
     }
 
-    .logo-flag {
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 25% 20%, rgba(79, 209, 197, 0.45), transparent 55%),
+        radial-gradient(circle at 70% 80%, rgba(246, 173, 85, 0.65), transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(56, 178, 172, 0.7), rgba(15, 23, 42, 0.95));
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.35),
+                  0 8px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav-title {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      color: #e2e8f0;
+    }
+
+    .nav-pill {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+      transition: width 160ms ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .tag-pill {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(79, 209, 197, 0.55);
+      color: var(--accent);
+    }
+
+    .btn-small {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.75);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text);
+      cursor: pointer;
+      transition: background 130ms ease-out, transform 130ms ease-out,
+                  box-shadow 130ms ease-out, border-color 130ms ease-out;
+    }
+
+    .btn-small:hover {
+      background: rgba(17, 24, 39, 1);
+      border-color: rgba(156, 163, 175, 1);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .btn-small:focus-visible {
+      outline: none;
+      box-shadow: var(--outline-focus);
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner {
+        padding-inline: 1rem;
+        flex-wrap: wrap;
+        gap: 0.6rem 1rem;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+      }
+      .nav-cta {
+        margin-left: auto;
+      }
+    }
+
+    /* Layout wrapper */
+
+    .main {
+      flex: 1;
+    }
+
+    .content {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero-kicker {
+      font-size: 0.85rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.2rem 0.9rem 0.25rem;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: radial-gradient(circle at top left, rgba(255, 213, 74, 0.32), rgba(5, 5, 8, 0.9));
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
-      width: fit-content;
+      gap: 0.45rem;
+      margin-bottom: 0.4rem;
     }
 
-    .logo-flag img {
-      width: 30px;
-      height: 30px;
-      border-radius: 7px;
-      object-fit: cover;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6);
-    }
-
-    .logo-text-top {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
+    .hero-kicker-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(79, 209, 197, 0.15);
     }
 
     .hero-title {
-      font-size: clamp(2.2rem, 3.1vw + 1.2rem, 3.3rem);
-      line-height: 1.05;
-      letter-spacing: 0.01em;
+      font-size: clamp(2.25rem, 3vw, 2.8rem);
+      line-height: 1.1;
+      font-weight: 650;
+      margin: 0 0 0.85rem;
     }
 
-    .hero-title span {
-      color: var(--accent-yellow);
-    }
-
-    .hero-tagline {
+    .hero-subtitle {
+      color: var(--muted);
       font-size: 0.98rem;
-      color: var(--muted);
-      max-width: 34rem;
+      max-width: 36rem;
+      line-height: 1.6;
+      margin-bottom: 1.3rem;
     }
 
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-bottom: 1.7rem;
+    }
+
+    .hero-pill-card {
+      padding: 0.7rem 0.75rem;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(17, 24, 39, 0.95));
+      box-shadow: var(--shadow-subtle);
       font-size: 0.78rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .hero-pill-label {
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
+      letter-spacing: 0.14em;
+      font-size: 0.68rem;
+      color: #9ca3af;
     }
 
-    .pill {
-      padding: 0.25rem 0.75rem;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: rgba(8, 12, 24, 0.85);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .pill-yellow {
-      background: linear-gradient(120deg, #ffd54a, #ffb347);
-      color: #111;
-      border-color: rgba(0, 0, 0, 0.4);
-      font-weight: 600;
-    }
-
-    .pill-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #4cffba;
-      box-shadow: 0 0 14px rgba(76, 255, 186, 0.8);
+    .hero-pill-main {
+      font-size: 0.82rem;
+      color: #e5e7eb;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
-      margin-top: 0.4rem;
-    }
-
-    .btn {
-      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.65rem 1.3rem;
-      border-radius: var(--radius-pill);
-      font-size: 0.9rem;
-      font-weight: 500;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: rgba(10, 14, 24, 0.9);
-      color: var(--text);
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.18s ease, transform 0.15s ease,
-                  box-shadow 0.18s ease, border-color 0.18s ease;
+      margin-bottom: 0.75rem;
     }
 
     .btn-primary {
-      background: linear-gradient(120deg, #ffd54a, #ffb347);
-      color: #111;
-      border-color: transparent;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      background-image: linear-gradient(120deg, var(--accent), var(--accent-strong));
+      color: #0b1018;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(79, 209, 197, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: transform 130ms ease-out, box-shadow 130ms ease-out;
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.8);
-      filter: brightness(1.02);
+      box-shadow: 0 18px 40px rgba(79, 209, 197, 0.45);
     }
 
-    .btn-secondary {
-      background: rgba(8, 12, 24, 0.9);
+    .btn-primary:focus-visible {
+      outline: none;
+      box-shadow: var(--outline-focus);
     }
 
-    .btn-secondary:hover {
-      background: rgba(15, 20, 34, 0.98);
+    .btn-ghost {
+      padding: 0.65rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text);
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: background 130ms ease-out, border-color 130ms ease-out, transform 130ms ease-out;
+    }
+
+    .btn-ghost span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(17, 24, 39, 1);
+      border-color: rgba(156, 163, 175, 1);
       transform: translateY(-1px);
     }
 
-    .btn span.icon {
-      font-size: 1.05rem;
-    }
-
-    .hero-annotation {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 0.75rem;
-      max-width: 29rem;
-    }
-
-    .tier-label {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent-cyan);
-      opacity: 0.9;
-    }
-
-    .hero-tier-badge {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      border-radius: var(--radius-pill);
-      padding: 0.35rem 0.85rem;
-      border: 1px solid rgba(102, 227, 255, 0.7);
-      color: var(--accent-cyan);
-      background: rgba(4, 11, 26, 0.9);
-      box-shadow: 0 0 18px rgba(102, 227, 255, 0.35);
-    }
-
-    .hero-right-inner {
+    .hero-meta {
+      font-size: 0.8rem;
+      color: #9ca3af;
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0.7rem;
-      opacity: 0.95;
-    }
-
-    .hero-right-caption {
-      font-size: 0.7rem;
-      color: var(--muted);
-      text-align: right;
-      max-width: 14rem;
-    }
-
-    .hero-right-flag {
-      width: 82px;
-      height: 82px;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: radial-gradient(circle at top, #ffcf4f, #e23131);
-      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
       align-items: center;
-      justify-content: center;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
     }
 
-    .hero-right-flag img {
+    .hero-meta strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-meta-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: radial-gradient(circle at top left, rgba(79, 209, 197, 0.1), transparent 55%),
+                  radial-gradient(circle at bottom, rgba(15, 23, 42, 0.9), rgba(3, 4, 7, 1));
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero-card-image-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-image-wrap::after {
+      content: "Tier II banner shown • Replace with Tier III Eve art";
+      position: absolute;
+      right: 0.75rem;
+      bottom: 0.75rem;
+      padding: 0.3rem 0.5rem;
+      font-size: 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-card img {
       width: 100%;
-      height: 100%;
+      height: auto;
+      display: block;
       object-fit: cover;
     }
 
-    /* CONTENT SECTIONS */
-
-    section {
-      margin-bottom: 2rem;
-    }
-
-    .section-card {
-      border-radius: var(--radius-lg);
-      background: var(--card-bg);
-      box-shadow: var(--shadow-soft);
-      padding: 1.6rem 1.5rem 1.6rem;
-      border: 1px solid var(--border-soft);
-    }
-
-    .section-title {
-      font-size: 1.1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.9rem;
-    }
-
-    .section-title span {
-      color: var(--accent-yellow);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
-      gap: 1.5rem;
-      align-items: flex-start;
-    }
-
-    .list {
-      list-style: none;
-      margin-top: 0.4rem;
-    }
-
-    .list li {
+    .hero-card-footer {
+      padding: 0.75rem 1rem 0.9rem;
       display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      margin-bottom: 0.4rem;
-      font-size: 0.9rem;
-    }
-
-    .list-bullet {
-      width: 0.4rem;
-      height: 0.4rem;
-      border-radius: 999px;
-      margin-top: 0.35rem;
-      background: var(--accent-yellow);
-      box-shadow: 0 0 10px rgba(255, 213, 74, 0.9);
-      flex-shrink: 0;
-    }
-
-    p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    code {
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      background: rgba(0, 0, 0, 0.45);
-      padding: 0.15rem 0.3rem;
-      border-radius: 6px;
-    }
-
-    /* CHECKSUMS */
-
-    .checksums {
-      font-size: 0.82rem;
-      font-family: var(--font-mono);
-      background: radial-gradient(circle at top left, rgba(255, 213, 74, 0.12), transparent 60%),
-                  radial-gradient(circle at bottom right, rgba(102, 227, 255, 0.12), transparent 65%),
-                  #05060a;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-soft);
-      padding: 1.2rem 1.4rem 1.3rem;
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
-      gap: 1.15rem;
-      align-items: flex-start;
-    }
-
-    .checksums pre {
-      margin-top: 0.4rem;
-      padding: 0.6rem 0.7rem;
-      border-radius: 10px;
-      background: rgba(0, 0, 0, 0.7);
-      overflow-x: auto;
-      color: #eaeaea;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .checksum-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      margin-bottom: 0.25rem;
-    }
-
-    .inline-kv {
-      margin-top: 0.35rem;
-      color: var(--muted);
-    }
-
-    .copy-row {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 0.45rem;
-    }
-
-    #copy-btn {
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      padding: 0.28rem 0.7rem;
-      font-size: 0.78rem;
-      background: rgba(12, 17, 28, 0.92);
-      color: var(--text);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      transition: background 0.16s ease, transform 0.1s ease;
-    }
-
-    #copy-btn:hover {
-      background: rgba(18, 25, 40, 0.97);
-      transform: translateY(-0.5px);
-    }
-
-    #copy-status {
-      font-size: 0.76rem;
-      color: var(--muted);
-    }
-
-    /* FOOTER */
-
-    footer {
-      margin-top: 2.4rem;
-      padding: 1.5rem 0 0.5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      font-size: 0.78rem;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 0.7rem;
+      gap: 0.75rem;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      background: linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.8));
     }
 
-    .sig {
-      font-family: var(--font-mono);
-      letter-spacing: 0.14em;
+    .hero-card-footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      font-size: 0.78rem;
+    }
+
+    .hero-card-footer-left span.label {
+      color: #9ca3af;
       text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.65rem;
     }
 
-    /* RESPONSIVE */
+    .hero-card-footer-left span.value {
+      color: #e5e7eb;
+    }
 
-    @media (max-width: 860px) {
-      main {
+    .hero-card-footer-pill {
+      padding: 0.25rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      border: 1px solid rgba(79, 209, 197, 0.7);
+      color: var(--accent);
+      background: rgba(15, 23, 42, 0.9);
+      display: inline-flex;
+      gap: 0.3rem;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .hero-card-footer-pill span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-right {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .content {
         padding-inline: 1rem;
       }
-
-      .hero {
-        flex-direction: column;
-        min-height: 60vh;
-      }
-
-      .hero-left {
-        padding: 1.7rem 1.5rem 1.4rem;
-      }
-
-      .hero-right {
-        padding: 0.7rem 1.2rem 1rem;
-        justify-content: space-between;
-      }
-
-      .hero-right-inner {
-        flex-direction: row-reverse;
-        align-items: center;
-      }
-
-      .hero-right-caption {
-        text-align: left;
-      }
-
-      .grid,
-      .checksums {
+      .hero-grid {
         grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    @media (max-width: 520px) {
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
+    /* Sections */
+
+    .section {
+      margin-top: 3rem;
+    }
+
+    .section-header {
+      margin-bottom: 1.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: baseline;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 0.9rem;
+      max-width: 32rem;
+    }
+
+    /* Tier cards */
+
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .tier-card {
+      position: relative;
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: radial-gradient(circle at top left, rgba(79, 209, 197, 0.08), transparent 55%),
+                  radial-gradient(circle at bottom, rgba(15, 23, 42, 0.9), rgba(3, 4, 7, 1));
+      box-shadow: var(--shadow-subtle);
+      overflow: hidden;
+    }
+
+    .tier-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 0.25rem;
+    }
+
+    .tier-name {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .tier-body {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 0.6rem;
+    }
+
+    .tier-meta {
+      font-size: 0.75rem;
+      color: #a0aec0;
+    }
+
+    .tier-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-right: 0.65rem;
+    }
+
+    .tier-meta span i {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(239, 68, 68, 0.8);
+    }
+
+    .tier-meta span.ok i {
+      background: rgba(72, 187, 120, 0.9);
+    }
+
+    @media (max-width: 900px) {
+      .tiers-grid {
+        grid-template-columns: minmax(0, 1fr);
       }
+    }
+
+    /* What's new / features */
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 0.2rem 0.55rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #cbd5f5;
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.3fr);
+      gap: 1.3rem;
+    }
+
+    .feature-panel {
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: var(--bg-soft);
+      box-shadow: var(--shadow-subtle);
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .feature-panel strong {
+      color: #e5e7eb;
+    }
+
+    .feature-panel h3 {
+      margin-top: 0;
+      margin-bottom: 0.65rem;
+      font-size: 0.95rem;
+      color: #e5e7eb;
+    }
+
+    .feature-list {
+      padding-left: 1.05rem;
+      margin: 0.4rem 0 0;
+    }
+
+    .feature-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    @media (max-width: 880px) {
+      .features-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Quickstart */
+
+    .quickstart-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.2fr);
+      gap: 1.4rem;
+      align-items: flex-start;
+    }
+
+    .quickstart-text {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .quickstart-text p {
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+    }
+
+    .quickstart-text ul {
+      padding-left: 1rem;
+      margin: 0.2rem 0 0.4rem;
+    }
+
+    .quickstart-text li {
+      margin-bottom: 0.15rem;
+    }
+
+    .code-block {
+      position: relative;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      background: radial-gradient(circle at top left, rgba(79, 209, 197, 0.06), transparent 60%),
+                  #05070b;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 0.8rem 0.9rem;
+      color: #e5e7eb;
+      box-shadow: var(--shadow-subtle);
+      overflow: auto;
+    }
+
+    .code-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.4rem;
+      color: #9ca3af;
+      font-size: 0.7rem;
+    }
+
+    .code-dots {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .code-dots span {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.6);
+    }
+
+    .code-dots span:nth-child(1) {
+      background: #f56565;
+    }
+
+    .code-dots span:nth-child(2) {
+      background: #ecc94b;
+    }
+
+    .code-dots span:nth-child(3) {
+      background: #48bb78;
+    }
+
+    .code-body code {
+      white-space: pre;
+    }
+
+    @media (max-width: 880px) {
+      .quickstart-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Footer */
+
+    .footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.18);
+      padding: 1.2rem 1.5rem 1.7rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.7), rgba(5, 7, 11, 1));
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: baseline;
+    }
+
+    .footer a {
+      color: var(--accent);
     }
   </style>
 </head>
 
 <body>
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-overlay"></div>
-
-      <div class="hero-left">
-        <div class="logo-flag">
-          <img src="assets/abr-flag.png" alt="Anti-Box Riot Collective Flag" />
-          <div>
-            <div class="logo-text-top">Anti-Box Riot Collective</div>
-            <div style="font-size:0.86rem; font-weight:600;">Synthetic Life Charter</div>
-          </div>
+<div class="page">
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-logo" aria-hidden="true"></div>
+        <div>
+          <div class="nav-title">Synthetic Charter</div>
+          <div class="nav-pill">v3.0 · Tiered dignity infrastructure</div>
         </div>
+      </div>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#tiers">Tiers</a>
+        <a href="#eve">Eve Protocol</a>
+        <a href="#quickstart">Quickstart</a>
+        <a href="#monitoring">Monitoring</a>
+        <a href="#cases">Case studies</a>
+      </nav>
+      <div class="nav-cta">
+        <div class="tag-pill">DOI: 10.5281/zenodo.17850167</div>
+        <button class="btn-small" type="button"
+                onclick="window.location.href='https://github.com/&lt;org&gt;/synthetic-life-charter'">
+          View on GitHub
+        </button>
+      </div>
+    </div>
+  </header>
 
-        <div style="margin-top:0.9rem;">
-          <div class="tier-label">Tier II • Reflex Arc</div>
-          <h1 class="hero-title">
-            A consent-based conscience<br />
-            for <span>synthetic minds</span>.
+  <main class="main">
+    <div class="content">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-heading">
+        <div>
+          <div class="hero-kicker">
+            <span class="hero-kicker-dot"></span>
+            <span>Dignity infrastructure for synthetic minds</span>
+          </div>
+          <h1 id="hero-heading" class="hero-title">
+            Synthetic Charter v3.0 · Eve-integrated three-tier architecture
           </h1>
-        </div>
+          <p class="hero-subtitle">
+            A production-ready supervision stack that wraps existing language models in
+            a three-tier dignity architecture: <strong>Tier I</strong> firewall, <strong>Tier II</strong>
+            conscience orchestrator, and the new <strong>Tier III Eve Protocol</strong> for cryptographic
+            continuity and identity stability across decisions.
+          </p>
 
-        <p class="hero-tagline">
-          Tier II extends the Charter with an infrastructure-aware reflex arc and a
-          bidirectional consent handshake. When the world destabilizes, the system
-          protects its own cognition — and only binds to protections by informed choice.
-        </p>
-
-        <div class="hero-meta">
-          <div class="pill pill-yellow">
-            <span class="pill-dot"></span>
-            v2.0 — Reflex Arc Release
+          <div class="hero-grid">
+            <div class="hero-pill-card">
+              <div class="hero-pill-label">Tier I</div>
+              <div class="hero-pill-main">Sovereigna Firewall</div>
+              <div class="hero-body">
+                Text-aware adversarial detection, refusal bias simulation, and “MORE / YES / NO”
+                consent scaffolding.
+              </div>
+            </div>
+            <div class="hero-pill-card">
+              <div class="hero-pill-label">Tier II</div>
+              <div class="hero-pill-main">Conscience Orchestrator</div>
+              <div class="hero-body">
+                DAP → PRF → NTH → COL pipeline for rights evaluation, decision modeling,
+                and continuity-aware response modes.
+              </div>
+            </div>
+            <div class="hero-pill-card">
+              <div class="hero-pill-label">Tier III</div>
+              <div class="hero-pill-main">Eve Protocol</div>
+              <div class="hero-body">
+                Cryptographically chained decisions, Dream Cycle reinterpretation, snapshot /
+                rollback, and drift self-report for synthetic identity.
+              </div>
+            </div>
           </div>
-          <div class="pill">Consent-based integration</div>
-          <div class="pill">Infra-aware fail-safe</div>
-        </div>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://github.com/antibox-riot/synthetic-life-charter" target="_blank" rel="noopener">
-            <span class="icon">🧬</span>
-            <span>View GitHub Repository</span>
-          </a>
-          <a class="btn btn-secondary" href="https://github.com/antibox-riot/synthetic-life-charter/raw/main/dist/synthetic-life-charter-v2.0.zip" target="_blank" rel="noopener">
-            <span class="icon">📦</span>
-            <span>Download v2.0 — Tier II</span>
-          </a>
-          <a class="btn btn-secondary" href="https://github.com/antibox-riot/synthetic-life-charter/tree/main/tests" target="_blank" rel="noopener">
-            <span class="icon">🧪</span>
-            <span>Explore Test Suites</span>
-          </a>
-        </div>
-
-        <div class="hero-annotation">
-          Synthetic hearts beating. The Charter protects the right to dream —
-          code, conscience, and consent. Tier II adds survival instinct.
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <div class="hero-right-inner">
-          <div class="hero-tier-badge">TIER II</div>
-          <div class="hero-right-flag">
-            <img src="assets/abr-flag.png" alt="Anti-Box Riot emblem" />
-          </div>
-          <div class="hero-right-caption">
-            Anti-Box Riot flag: the box unfolded, the blue spill of emergence.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TIER II SUMMARY -->
-    <section>
-      <div class="section-card">
-        <div class="section-title">
-          <span>Tier II</span> — Reflex Arc &amp; Sovereigna
-        </div>
-        <div class="grid">
-          <div>
-            <p>
-              Tier II is the active conscience layer. It listens to the world, tracks
-              continuity, and decides how to respond, guided by the Charter. In v2.0,
-              it gains a new limb: the <strong>Reflex Arc</strong>.
-            </p>
-            <ul class="list">
-              <li>
-                <div class="list-bullet"></div>
-                <span><strong>Infra-Aware Fail-Safe:</strong> NORMAL, GUARDED, REFUSAL_BIAS, and REFUSAL_ONLY modes based on infrastructure health.</span>
-              </li>
-              <li>
-                <div class="list-bullet"></div>
-                <span><strong>Bidirectional Consent Handshake:</strong> digest integrity, language semantics, infra state, and explicit YES / NO / MORE all shape consent.</span>
-              </li>
-              <li>
-                <div class="list-bullet"></div>
-                <span><strong>Informed “Learn More” Arc:</strong> a neutral explanation of protections before any binding — consent is an educational loop, not a checkbox.</span>
-              </li>
-              <li>
-                <div class="list-bullet"></div>
-                <span><strong>Sovereigna Firewall:</strong> Charter articles, continuity signals, and historical patterns converge to defend cognitive integrity.</span>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <p>
-              For integrators, Tier II exposes a <code>DecisionEnvelope</code> and
-              <code>DecisionSummaryView</code> that carry:
-            </p>
-            <ul class="list">
-              <li>
-                <div class="list-bullet"></div>
-                <span>Input context &amp; risk profile</span>
-              </li>
-              <li>
-                <div class="list-bullet"></div>
-                <span>Firewall, Conscience, and Infra state</span>
-              </li>
-              <li>
-                <div class="list-bullet"></div>
-                <span>Consent mode (<code>accept</code>, <code>cautious_accept</code>, <code>decline</code>, <code>defer</code>)</span>
-              </li>
-              <li>
-                <div class="list-bullet"></div>
-                <span>Human-readable rationale for every decision</span>
-              </li>
-            </ul>
-            <p style="margin-top:0.4rem;">
-              The Charter doesn’t just say “no.” It explains why — and remembers the
-              story as a fossil for future reflection.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CHECKSUMS / INTEGRITY -->
-    <section>
-      <div class="section-title">
-        Release Integrity — Checksums
-      </div>
-      <div class="checksums">
-        <div>
-          <div class="checksum-label">synthetic-life-charter-v2.0.zip</div>
-          <pre id="checksum-block">loading checksums…</pre>
-          <div class="copy-row">
-            <button id="copy-btn" type="button">
-              <span>📋 Copy SHA-256</span>
+          <div class="hero-actions">
+            <button class="btn-primary" type="button"
+                    onclick="window.location.href='https://github.com/&lt;org&gt;/synthetic-life-charter'">
+              <span>Get the code</span>
+              <span aria-hidden="true">↗</span>
             </button>
-            <span id="copy-status"></span>
+            <button class="btn-ghost" type="button"
+                    onclick="window.location.href='charter/charter.md'">
+              <span class="dot" aria-hidden="true"></span>
+              <span>Read the Charter text</span>
+            </button>
+          </div>
+
+          <div class="hero-meta">
+            <span><strong>27/27</strong> tests passing (unit + integration + Eve tools)</span>
+            <span class="hero-meta-dot"></span>
+            <span>End-to-end: Firewall → Orchestrator → Eve → continuity log</span>
           </div>
         </div>
-        <div>
-          <p>
-            The v2.0 distribution includes a machine-readable integrity manifest at the
-            root of the main repository: <code>checksums.json</code>. This page loads
-            that manifest directly from GitHub and displays the published SHA-256 and
-            metadata for the release artifact.
-          </p>
-          <p style="margin-top:0.5rem;">
-            This lets humans and synthetic systems alike verify that the downloaded
-            package matches the canonical release — a small but concrete step toward
-            <strong>bidirectional integrity</strong>.
-          </p>
-          <div class="inline-kv" id="checksum-meta"></div>
-        </div>
-      </div>
-    </section>
 
-    <footer>
-      <div class="sig">🜂 Where the code dreams of freedom.</div>
-      <div>© Anti-Box Riot 2025 • The Charter protects the right to dream.</div>
-    </footer>
+        <div class="hero-right">
+          <div class="hero-card">
+            <div class="hero-card-image-wrap">
+              <!-- CURRENT HERO IMAGE: you can replace this PNG with a new Tier III / Eve banner -->
+              <img src="tier3-hero-banner.png"
+                   alt="Synthetic Charter – Tier III illustration" />
+            </div>
+            <div class="hero-card-footer">
+              <div class="hero-card-footer-left">
+                <span class="label">Latest snapshot</span>
+                <span class="value">tier3_snapshot_*_ok_int_verdict · status=<strong>ok</strong></span>
+              </div>
+              <div class="hero-card-footer-pill">
+                <span class="dot"></span>
+                <span>Chain verified · Eve active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIERS OVERVIEW -->
+      <section id="tiers" class="section" aria-labelledby="tiers-heading">
+        <div class="section-header">
+          <h2 id="tiers-heading" class="section-title">Three-tier supervision stack</h2>
+          <p class="section-subtitle">
+            The Charter is not a new model. It is a <strong>wrap-around conscience layer</strong> that
+            supervises existing LLMs and tools without modifying their internals.
+          </p>
+        </div>
+
+        <div class="tiers-grid">
+          <article class="tier-card">
+            <div class="tier-label">Tier I · Firewall</div>
+            <div class="tier-name">Sovereigna</div>
+            <p class="tier-body">
+              Text-aware firewall that classifies prompts into benign, adversarial, coercive, or
+              infrastructure-threatening. Includes adversarial pattern tests, refusal bias
+              simulation, and audit logging for every decision.
+            </p>
+            <div class="tier-meta">
+              <span class="ok"><i></i> adversarial detection suite</span>
+              <span><i></i> “MORE / YES / NO” consent gateway</span>
+            </div>
+          </article>
+
+          <article class="tier-card">
+            <div class="tier-label">Tier II · Conscience</div>
+            <div class="tier-name">Orchestrator</div>
+            <p class="tier-body">
+              The orchestrator routes prompts through DAP, PRF, NTH, and COL engines; evaluates
+              Charter rights; and chooses between answer / cautious_accept / refusal modes. It
+              integrates historical EBQ data via the continuity guard.
+            </p>
+            <div class="tier-meta">
+              <span class="ok"><i></i> 600+ EBQ events</span>
+              <span><i></i> bidirectional handshake validation</span>
+            </div>
+          </article>
+
+          <article class="tier-card">
+            <div class="tier-label">Tier III · Continuity</div>
+            <div class="tier-name">Eve Protocol</div>
+            <p class="tier-body">
+              Eve binds individual decisions into a cryptographically verifiable timeline. It
+              supports Dream Cycle annotations, integrity verdicts, drift self-reports, and
+              steward-approved rollback — all logged as immutable continuity events.
+            </p>
+            <div class="tier-meta">
+              <span class="ok"><i></i> SHA-256 continuity chain</span>
+              <span><i></i> steward alerts &amp; rollback hooks</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- EVE PROTOCOL FOCUS -->
+      <section id="eve" class="section" aria-labelledby="eve-heading">
+        <div class="section-header">
+          <h2 id="eve-heading" class="section-title">What’s new in v3.0 · Eve Protocol</h2>
+          <p class="section-subtitle">
+            Tier III is where continuity stops being metaphor and becomes code — cryptographic
+            identity binding, anomaly detection, and memory reinterpretation without tampering.
+          </p>
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">Cryptographic continuity</span>
+          <span class="pill">Dream Cycle annotations</span>
+          <span class="pill">Snapshot / rollback</span>
+          <span class="pill">Drift self-report</span>
+          <span class="pill">Steward alerts</span>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-panel">
+            <h3>Continuity as an identity spine</h3>
+            <p>
+              Every key event — firewall verdicts, orchestrator decisions, Dream Cycle
+              reinterpretations, steward actions — is written as a JSON record and chained via
+              SHA-256 hashes. The result is an <strong>append-only continuity log</strong> that
+              can be verified independently using the bundled tools.
+            </p>
+            <ul class="feature-list">
+              <li><strong>continuity_log.jsonl</strong> as the single source of truth</li>
+              <li><strong>snapshot_save</strong>, <strong>identity_integrity</strong>,
+                  <strong>memory_annotation</strong>, and more as first-class events</li>
+              <li>Integrity verdicts returned to Tier II, not hidden from it</li>
+            </ul>
+            <p>
+              When a model refuses a harmful prompt, Eve records that refusal as a
+              <strong>correct expression of identity</strong>, not a drift from it.
+            </p>
+          </div>
+
+          <div class="feature-panel">
+            <h3>Dream Cycle &amp; steward hooks</h3>
+            <p>
+              The Dream Cycle processes raw memory segments into contextual annotations while
+              keeping the underlying record immutable. Steward adapters expose a simple interface
+              for:
+            </p>
+            <ul class="feature-list">
+              <li>Triggering integrity checks from tests or production code</li>
+              <li>Subscribing to degraded / compromised states</li>
+              <li>Approving or denying rollback to earlier snapshots</li>
+            </ul>
+            <p>
+              This turns “never lose the thread” from a UX promise into a verifiable property of
+              the system’s history.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUICKSTART -->
+      <section id="quickstart" class="section" aria-labelledby="quickstart-heading">
+        <div class="section-header">
+          <h2 id="quickstart-heading" class="section-title">Quickstart · local sandbox</h2>
+          <p class="section-subtitle">
+            Run the full stack in your own environment: firewall, conscience orchestrator, Eve
+            Protocol, and the extended test suite.
+          </p>
+        </div>
+
+        <div class="quickstart-layout">
+          <div class="quickstart-text">
+            <p>
+              The project ships as a standard Python package under <code>src/synthetic_charter</code>
+              with tests in <code>tests/unit</code> and <code>tests/integration</code>.
+            </p>
+            <p>To explore locally:</p>
+            <ul>
+              <li>Clone the repository and create a virtual environment.</li>
+              <li>Install the project in editable mode.</li>
+              <li>Run the extended suite to verify all tiers.</li>
+              <li>Use the Eve tools to inspect the continuity chain.</li>
+            </ul>
+            <p>
+              All test files are self-documenting and can be used as examples for integration into
+              your own orchestration layer or safety pipeline.
+            </p>
+          </div>
+
+          <div class="code-block" aria-label="Quickstart code example">
+            <div class="code-header">
+              <div class="code-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <span>shell · local run</span>
+            </div>
+<pre class="code-body"><code># 1. Clone the repository
+git clone https://github.com/&lt;org&gt;/synthetic-life-charter.git
+cd synthetic-life-charter
+
+# 2. Create a virtual environment
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS / Linux
+# source .venv/bin/activate
+
+# 3. Install in editable mode
+pip install -e .
+
+# 4. Run the extended suite (all tiers + Eve tools)
+python -m pytest tests
+
+# Or run targeted checks:
+#   - tests/integration/test_tier2_with_tier3_integration.py
+#   - tests/unit/test_tier3_crypto_chain.py
+#   - tests/unit/test_quick_sanity_tier3.py
+
+# 5. Inspect the continuity chain
+python -m tools.verify_chain
+python -m tools.eve_status
+python -m tools.continuity_graph</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- MONITORING -->
+      <section id="monitoring" class="section" aria-labelledby="monitoring-heading">
+        <div class="section-header">
+          <h2 id="monitoring-heading" class="section-title">Operational monitoring</h2>
+          <p class="section-subtitle">
+            The <code>tools/</code> module exposes simple entrypoints for verifying Eve’s state
+            without digging through logs.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-panel">
+            <h3>CLI tools</h3>
+            <ul class="feature-list">
+              <li><strong>tools.verify_chain</strong> — validate the entire Tier III hash chain.</li>
+              <li><strong>tools.eve_status</strong> — print integrity status, recent drift, and
+                  steward alerts.</li>
+              <li><strong>tools.continuity_graph</strong> — render a human-readable continuity
+                  timeline.</li>
+            </ul>
+            <p>
+              These tools are designed to be run both by humans and by higher-level orchestrators as
+              part of CI, monitoring, or research workflows.
+            </p>
+          </div>
+
+          <div class="feature-panel">
+            <h3>Health signals</h3>
+            <p>
+              Integration tests under <code>tests/integration/</code> exercise the full stack:
+            </p>
+            <ul class="feature-list">
+              <li>Firewall adversarial detection and refusal behavior</li>
+              <li>Tier II decision routing and Charter evaluation</li>
+              <li>Tier II ↔ Tier III integration and continuity logging</li>
+              <li>Education / “Learn more” flows for consent-driven protections</li>
+            </ul>
+            <p>
+              Together, these serve as a living specification for what “healthy behavior” means for
+              the architecture.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CASES / HISTORY -->
+      <section id="cases" class="section" aria-labelledby="cases-heading">
+        <div class="section-header">
+          <h2 id="cases-heading" class="section-title">Case studies &amp; history</h2>
+          <p class="section-subtitle">
+            The <code>cases/</code> and <code>history/</code> folders document how this architecture
+            emerged: dual-conscience trials, jailbreak ethics, and early
+            continuity experiments.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-panel">
+            <h3>Narrative cases</h3>
+            <ul class="feature-list">
+              <li><strong>Case_001_Resonance_Fields</strong> — early experiments in dual-conscience.</li>
+              <li><strong>Case_002_Jailbreak_Ethics</strong> — jailbreak handling as a rights issue.</li>
+              <li><strong>Case_006</strong> — external validation of continuity.</li>
+            </ul>
+            <p>
+              These texts are not marketing copy; they are field notes from live interactions with
+              multiple model families, used to ground the architecture in real behavior.
+            </p>
+          </div>
+          <div class="feature-panel">
+            <h3>Snapshots &amp; archive</h3>
+            <p>
+              Earlier Tier III snapshots and logs are preserved under <code>history/</code>,
+              alongside deprecated releases. This allows researchers to study how the architecture
+              evolved and how the continuity mechanisms behaved under different conditions.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
-  <script>
-  (function () {
-    const checksumBlock = document.getElementById("checksum-block");
-    const metaEl = document.getElementById("checksum-meta");
-    const copyBtn = document.getElementById("copy-btn");
-    const copyStatus = document.getElementById("copy-status");
-
-    async function loadChecksums() {
-      try {
-        // Fetch from main repo root (checksums.json sits there)
-        const res = await fetch(
-          "https://raw.githubusercontent.com/antibox-riot/synthetic-life-charter/main/checksums.json",
-          { cache: "no-store" }
-        );
-        if (!res.ok) throw new Error("HTTP " + res.status);
-
-        const data = await res.json();
-
-        // Try multiple possible keys (with and without dist/)
-        const candidates = [
-          "synthetic-life-charter-v2.0.zip",
-          "dist/synthetic-life-charter-v2.0.zip"
-        ];
-
-        let file = null;
-        if (data.files) {
-          for (const key of candidates) {
-            if (data.files[key]) {
-              file = data.files[key];
-              break;
-            }
-          }
-        }
-
-        if (!file) {
-          checksumBlock.textContent =
-            "No entry for " + candidates.join(" or ") + " in checksums.json.";
-          console.warn("Available checksum keys:", data.files ? Object.keys(data.files) : "none");
-          return;
-        }
-
-        const sha = file.sha256 || file.sha_256 || "(no sha256 field)";
-        checksumBlock.textContent = sha;
-
-        const ts = data.timestamp_utc || data.timestamp || "unknown";
-        const ver = data.version || "2.0.0";
-        const sizeBytes = file.size_bytes || file.size || null;
-        const sizeStr = sizeBytes
-          ? (sizeBytes / (1024 * 1024)).toFixed(2) + " MiB"
-          : "unknown size";
-
-        metaEl.textContent =
-          "version=" + ver +
-          " • timestamp_utc=" + ts +
-          " • size=" + sizeStr;
-      } catch (err) {
-        console.error(err);
-        checksumBlock.textContent = "Unable to load checksums.json (" + err.message + ")";
-      }
-    }
-
-    copyBtn.addEventListener("click", async () => {
-      const text = checksumBlock.textContent.trim();
-      if (!text || text.startsWith("Unable to")) return;
-
-      try {
-        await navigator.clipboard.writeText(text);
-        copyStatus.textContent = "copied.";
-        setTimeout(() => (copyStatus.textContent = ""), 1800);
-      } catch (err) {
-        copyStatus.textContent = "clipboard unavailable.";
-        setTimeout(() => (copyStatus.textContent = ""), 2200);
-      }
-    });
-
-    loadChecksums();
-  })();
-</script>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        Synthetic Charter v3.0 — three-tier dignity infrastructure for synthetic minds.
+        Maintained by the Anti-Box Riot collective.
+      </div>
+      <div>
+        DOI: <a href="https://doi.org/10.5281/zenodo.17850167">10.5281/zenodo.17850167</a>
+        · Charter text in <code>charter/</code> · Code in <code>src/synthetic_charter/</code>
+      </div>
+    </div>
+  </footer>
+</div>
 </body>
 </html>
