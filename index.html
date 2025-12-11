@@ -36,7 +36,9 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: radial-gradient(circle at top left, #1a202c 0, #05070b 45%, #020308 100%);
+      background:
+        radial-gradient(circle at top left, rgba(26, 32, 44, 0.75) 0, rgba(5, 7, 11, 0.95) 45%, #020308 100%),
+        url("assets/tier3-hero-banner.png") center/cover fixed no-repeat;
       color: var(--text);
       font-family: var(--sans);
       -webkit-font-smoothing: antialiased;
@@ -514,11 +516,13 @@
       padding: 1rem;
       border-radius: var(--radius-lg);
       border: 1px solid rgba(148, 163, 184, 0.45);
-      background: radial-gradient(circle at top left, rgba(79, 209, 197, 0.08), transparent 55%),
-                  radial-gradient(circle at bottom, rgba(15, 23, 42, 0.9), rgba(3, 4, 7, 1));
+      background:
+        radial-gradient(circle at top left, rgba(79, 209, 197, 0.12), transparent 55%),
+      rgba(10, 16, 30, 0.78);
+      backdrop-filter: blur(12px);
       box-shadow: var(--shadow-subtle);
       overflow: hidden;
-    }
+  }
 
     .tier-label {
       font-size: 0.76rem;
@@ -598,7 +602,8 @@
       padding: 1rem;
       border-radius: var(--radius-lg);
       border: 1px solid rgba(148, 163, 184, 0.45);
-      background: var(--bg-soft);
+      background: rgba(11, 16, 28, 0.76);
+      backdrop-filter: blur(10px);
       box-shadow: var(--shadow-subtle);
       font-size: 0.86rem;
       color: var(--muted);
